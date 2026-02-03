@@ -1,0 +1,28 @@
+function sayYes() {
+  document.getElementById("questionCard").classList.add("hidden");
+  document.getElementById("yesCard").classList.remove("hidden");
+}
+
+function moveNo() {
+  const noBtn = document.querySelector(".no");
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 200 - 100;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+// Floating hearts generator
+const heartsContainer = document.getElementById("hearts");
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 10 + "px";
+  heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+  heartsContainer.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 500);
